@@ -43,45 +43,20 @@ app.get("/", (req, res) => {
 
 app.get("/menu", (req, res) => {
   let todaysDate = new Date();
+  todaysDate.setHours(todaysDate.getHours() - 4);
   let today = `${todaysDate.getFullYear()}-${
     todaysDate.getMonth() + 1
   }-${todaysDate.getDate()}`;
 
   console.log(`Todays date is: ${today}`);
-  console.log("Attempting to query database.");
+  console.log(
+    `East coast time is ${todaysDate.getHours()}:${todaysDate.getMinutes()}`
+  );
 
-  try {
-    db.any("SELECT * FROM meals WHERE date >= $1", [today]).then((data) => {
-      data.map((meal) => (meal.date = convertPostgresDateForEJS(meal.date)));
-      console.log(data);
-      res.render("main", { data: data });
-    });
-  } catch (err) {
-    console.log(`There was an issue ${err}`);
-    let data = [
-      {
-        meal_id: 89,
-        date: "2022-07-28",
-        tom_home: false,
-        time_home: "",
-        conflicts: "",
-        entree: "Failure",
-        sides: [],
-        notes: "First",
-      },
-      {
-        meal_id: 90,
-        date: "2022-07-29",
-        tom_home: false,
-        time_home: "",
-        conflicts: "",
-        entree: "Failure",
-        sides: [],
-        notes: "Second",
-      },
-    ];
+  db.any("SELECT * FROM meals WHERE date >= $1", [today]).then((data) => {
+    data.map((meal) => (meal.date = convertPostgresDateForEJS(meal.date)));
     res.render("main", { data: data });
-  }
+  });
 });
 
 app.post("/save", (req, res) => {

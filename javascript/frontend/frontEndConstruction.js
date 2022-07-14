@@ -187,6 +187,14 @@ class MenuCardFrontEnd {
 
   removeTomHomeLabel() {
     let timeHomeInputs = document.querySelectorAll("[id^=card-time-home-]");
+
+    Array.from(timeHomeInputs).forEach((input) => {
+      let parentCard = input.closest(".menu-card");
+      let targetElement = parentCard.querySelector("span.tom-home");
+      if (input.value.length > 0) {
+        targetElement.style.display = "none";
+      }
+    });
     Array.from(timeHomeInputs).forEach((input) =>
       input.addEventListener("focus", (e) => {
         let parentCard = e.target.closest(".menu-card");
