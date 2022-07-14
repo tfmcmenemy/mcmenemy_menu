@@ -1,0 +1,122 @@
+@use "../abstracts/variables";
+
+.mobile-menu {
+  @media only screen and (min-width: 650px) {
+    display: none;
+  }
+  height: 6rem;
+  width: 6rem;
+  background-color: variables.$background-color-light;
+  position: fixed;
+  z-index: 3;
+
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+
+  .hamburger {
+    height: 0.3rem;
+    width: 60%;
+    background-color: variables.$background-color;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s all ease-in-out;
+
+    &:before {
+      content: "";
+      background-color: variables.$background-color;
+      height: 0.3rem;
+      width: 100%;
+      position: absolute;
+      top: -0.9rem;
+      transition: 0.2s all ease-in-out;
+    }
+    &:after {
+      content: "";
+      background-color: variables.$background-color;
+      height: 0.3rem;
+      width: 100%;
+      position: absolute;
+      top: 0.9rem;
+      transition: 0.2s all ease-in-out;
+    }
+  }
+
+  //When the menu is clicked
+  &.active {
+    .hamburger {
+      transform: translate(-50%, -50%) rotate(45deg);
+
+      &:before {
+        top: -8rem;
+        background-color: transparent;
+      }
+      &:after {
+        top: 0;
+        transform: rotate(-90deg);
+      }
+
+      // & + .mobile-menu__list {
+      //   display: block;
+      // }
+    }
+  }
+}
+
+.mobile-menu__list {
+  padding: 0.5rem 0;
+  display: flex;
+  list-style: none;
+  position: fixed;
+  z-index: 2;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: space-around;
+  width: 0rem;
+  overflow: hidden;
+  transition: 0.2s all ease-in-out;
+
+  &.active {
+    width: 35rem;
+    bottom: 8rem;
+  }
+  .mobile-menu__item {
+    display: grid;
+    place-items: center;
+    width: 9rem;
+    padding: 1rem;
+    border-radius: 4rem;
+    background-color: variables.$background-color-light;
+    color: variables.$background-color;
+    position: relative;
+    top: 0;
+    transition: 0.2s all ease-in-out;
+
+    &:hover {
+      top: -1.5px;
+    }
+
+    &:active {
+      top: 0px;
+    }
+  }
+}
+
+.darken-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}

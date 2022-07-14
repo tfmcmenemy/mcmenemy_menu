@@ -1,0 +1,191 @@
+@use "../abstracts/variables";
+
+.menu-card {
+  form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 3rem);
+    gap: 4rem;
+
+    .notes {
+      grid-column: 1 / span 2;
+      width: 100%;
+      font-size: 1.2rem;
+      height: 10rem;
+      .textarea-notes {
+        border-bottom: none !important;
+        resize: none;
+        height: 10rem;
+      }
+    }
+  }
+
+  .input-group {
+    position: relative;
+    // height: 2rem;
+    width: 100%;
+    justify-self: center;
+
+    &.disabled {
+      input {
+        border-bottom: 1px solid rgb(163, 162, 162);
+      }
+      label {
+        color: rgb(163, 162, 162);
+        font-style: italic;
+        font-weight: 100;
+      }
+    }
+
+    &.whole-width {
+      grid-column: 1 / -1;
+
+      .indent-left {
+        margin-left: 2rem;
+        width: 70%;
+      }
+    }
+
+    .day-of-the-week {
+      font-size: 0.9rem;
+      color: gray;
+    }
+
+    .card-label {
+      position: absolute;
+      top: 50%;
+      left: 0.6rem;
+      transform: translateY(-50%);
+      transition: all 0.2s ease-out;
+      font-size: 1.6rem;
+
+      color: variables.$background-color-light;
+    }
+    .card-input {
+      width: 100%;
+      height: 100%;
+      height: 3rem;
+      position: relative;
+      font-family: inherit;
+      font-size: 1.6rem;
+      color: variables.$background-color;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      border-bottom: 1px variables.$background-color-light solid;
+      border-radius: 0;
+    }
+
+    .card-bottomline {
+      height: 2px;
+      width: 0;
+      background-color: variables.$background-color;
+      display: block;
+      position: absolute;
+      bottom: -8px;
+
+      transition: 0.2s ease-in-out;
+    }
+
+    .card-input:focus ~ .card-label {
+      top: -20%;
+      left: 0;
+      font-size: 1.2rem;
+      color: variables.$background-color;
+    }
+
+    .card-input:focus ~ .card-bottomline {
+      width: 100%;
+    }
+
+    .card-input:not(:placeholder-shown).card-input:not(:focus) ~ .card-label {
+      top: -20%;
+      left: 0;
+      font-size: 1.2rem;
+      color: variables.$background-color;
+      color: rgb(156, 156, 156);
+    }
+    .card-input:not(:placeholder-shown).card-input:not(:focus) {
+      border-bottom: 1px solid gray;
+      color: variables.$background-color-light;
+    }
+  }
+}
+
+.form-group {
+  display: flex;
+  position: relative;
+  align-self: start;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+
+  .input-group:last-child {
+    width: 8rem;
+  }
+
+  span {
+    position: absolute;
+    right: 0;
+    top: -1rem;
+    right: 1rem;
+
+    font-size: 0.9rem;
+  }
+
+  .input-group.slider {
+    position: relative;
+    // bottom: -1.9rem;
+    // left: 3rem;
+    height: 100%;
+    width: 6rem;
+
+    input {
+      display: none;
+
+      &:checked + label:before {
+        left: 1.75rem;
+        background-color: variables.$background-color;
+      }
+
+      &:checked + label {
+        background-color: variables.$background-color-light;
+      }
+    }
+    label {
+      height: 2.5rem;
+      width: 4rem;
+      background-color: variables.$background-color;
+      border-radius: 2rem;
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &:before {
+        content: "";
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+        background-color: variables.$background-color-light;
+        position: absolute;
+        right: 1rem;
+        top: 0.25rem;
+        left: 0.25rem;
+
+        transition: 0.2s ease-in-out;
+      }
+    }
+  }
+}
+
+.card-sides {
+  grid-column: 1 / -1;
+
+  > .input-group {
+    margin-top: 1.8rem;
+  }
+  > .input-group:first-child {
+    margin-top: -2rem;
+  }
+}

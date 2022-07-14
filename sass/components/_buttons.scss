@@ -1,0 +1,61 @@
+@use "../abstracts/variables";
+
+.circle-button {
+  border-radius: 50%;
+  position: absolute;
+  height: 2.7rem;
+  width: 2.7rem;
+  margin-left: 2rem;
+  background-color: variables.$background-color;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(-50%);
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: variables.$background-color-light;
+    width: 70%;
+    height: 70%;
+  }
+}
+
+.save-button {
+  height: 30px;
+  width: 200px;
+  margin-bottom: 0.5rem;
+  display: none;
+  background-color: variables.$background-color;
+  color: variables.$foreground-color;
+  place-items: center;
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  z-index: 1;
+
+  transform: translateX(-50%);
+
+  border-radius: 3.4rem;
+
+  &.show {
+    display: grid;
+  }
+
+  // display: block;
+  // grid-column: 1/-1;
+  // justify-self: end;
+  // height: 2.7rem;
+  // width: 2.7rem;
+  // border-radius: 50%;
+  // background-color: variables.$background-color;
+  // display: grid;
+  // place-items: center;
+
+  // .save-button__icon {
+  //   height: 60%;
+  //   width: 60%;
+  //   fill: variables.$background-color-light;
+  // }
+}

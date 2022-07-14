@@ -1,0 +1,20 @@
+.menu-cards {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 394px);
+  justify-content: center;
+
+  .menu-card {
+    position: relative;
+    background: rgb(242, 237, 230);
+    height: auto;
+    margin: 1rem;
+    border-radius: 2rem;
+    padding: 2rem 2rem;
+    transition: 0.2s all ease-in-out;
+
+    &.save-button-added {
+      padding-bottom: 4rem;
+    }
+  }
+}

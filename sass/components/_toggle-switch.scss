@@ -1,0 +1,84 @@
+@use "../abstracts/variables";
+
+.toggle-switch {
+  position: relative;
+  width: 60px;
+  height: 30px;
+
+  & .slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // background-color: variables.$text-color-not-in-use;
+    transition: 0.4s;
+    border-radius: 3.4rem;
+
+    & .me {
+      position: absolute;
+      font-size: 1rem;
+      // color: variables.$text-color-not-in-use2;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-50%);
+      transition: 0.3s;
+      opacity: 0;
+    }
+
+    & .them {
+      position: absolute;
+      font-size: 1rem;
+      color: white;
+      top: 50%;
+      right: 3.5px;
+      transform: translateY(-50%);
+      transition: 0.3s;
+      opacity: 1;
+    }
+
+    &:before {
+      position: absolute;
+      left: 3.5px;
+      bottom: 3.5px;
+      content: "";
+      height: 23px;
+      width: 23px;
+      border-radius: 50%;
+      // background-color: variables.$call-to-action;
+      transition: all 0.3s ease-in;
+    }
+  }
+
+  & input {
+    display: none;
+    // position: absolute;
+    // top: 3rem;
+
+    &:checked + .slider {
+      // background-color: variables.$call-to-action;
+
+      & .me {
+        opacity: 1;
+      }
+      & .them {
+        opacity: 0;
+      }
+    }
+
+    &:checked + .slider:before {
+      // background-color: variables.$text-color-not-in-use;
+      transform: translateX(30px);
+    }
+  }
+}
+
+//HTML to use with toggle switch
+//  <label for="checkbox-1" class="toggle-switch">
+//             <input id="checkbox-1" type="checkbox" />
+
+//             <span class="slider">
+//               <span class="me">Me</span>
+//               <span class="them">Them</span>
+//             </span>
+// </label>
