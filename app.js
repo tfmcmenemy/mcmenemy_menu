@@ -51,13 +51,35 @@ app.get("/menu", (req, res) => {
   console.log("Attempting to query database.");
 
   try {
-    db.any("SELECT * FROM meals WHERE date >= $1", [today]).then((data) => {
+    d.any("SELECT * FROM meals WHERE date >= $1", [today]).then((data) => {
       data.map((meal) => (meal.date = convertPostgresDateForEJS(meal.date)));
-      console.log(data[1]);
+      console.log(data);
       res.render("main", { data: data });
     });
   } catch (err) {
     console.log(`There was an issue ${err}`);
+    let data = [
+      {
+        meal_id: 89,
+        date: "2022-07-28",
+        tom_home: false,
+        time_home: "",
+        conflicts: "",
+        entree: "Failure",
+        sides: [],
+        notes: "First",
+      },
+      {
+        meal_id: 90,
+        date: "2022-07-29",
+        tom_home: false,
+        time_home: "",
+        conflicts: "",
+        entree: "Failure",
+        sides: [],
+        notes: "Second",
+      },
+    ];
     res.render("main", { data: data });
   }
 });
