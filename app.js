@@ -47,13 +47,19 @@ app.get("/menu", (req, res) => {
     todaysDate.getMonth() + 1
   }-${todaysDate.getDate()}`;
 
-  res.redirect("https://www.google.com");
+  console.log(`Todays date is: ${today}`);
+  console.log("Attempting to query database.");
 
-  // db.any("SELECT * FROM meals WHERE date >= $1", "2022-07-14").then((data) => {
-  //   data.map((meal) => (meal.date = convertPostgresDateForEJS(meal.date)));
-  //   console.log(data[1]);
-  //   res.render("main", { data: data });
-  // });
+  try {
+    db.any("SELECT * FROM meals WHERE date >= $1", [today]).then((data) => {
+      data.map((meal) => (meal.date = convertPostgresDateForEJS(meal.date)));
+      console.log(data[1]);
+      res.render("main", { data: data });
+    });
+  } catch (err) {
+    console.log(`There was an issue ${err}`);
+    res.render("main", { data: data });
+  }
 });
 
 app.post("/save", (req, res) => {
