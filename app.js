@@ -51,7 +51,7 @@ app.get("/menu", (req, res) => {
   console.log("Attempting to query database.");
 
   try {
-    d.any("SELECT * FROM meals WHERE date >= $1", [today]).then((data) => {
+    db.any("SELECT * FROM meals WHERE date >= $1", [today]).then((data) => {
       data.map((meal) => (meal.date = convertPostgresDateForEJS(meal.date)));
       console.log(data);
       res.render("main", { data: data });
