@@ -47,11 +47,13 @@ app.get("/menu", (req, res) => {
     todaysDate.getMonth() + 1
   }-${todaysDate.getDate()}`;
 
-  db.any("SELECT * FROM meals WHERE date >= $1", "2022-07-14").then((data) => {
-    data.map((meal) => (meal.date = convertPostgresDateForEJS(meal.date)));
-    console.log(data[1]);
-    res.render("main", { data: data });
-  });
+  res.redirect("https://www.google.com");
+
+  // db.any("SELECT * FROM meals WHERE date >= $1", "2022-07-14").then((data) => {
+  //   data.map((meal) => (meal.date = convertPostgresDateForEJS(meal.date)));
+  //   console.log(data[1]);
+  //   res.render("main", { data: data });
+  // });
 });
 
 app.post("/save", (req, res) => {
