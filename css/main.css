@@ -247,7 +247,7 @@ select {
   transform: translateY(-50%);
   transition: all 0.2s ease-out;
   font-size: 1.6rem;
-  color: #748676;
+  color: #c9c9c9;
 }
 .menu-card .input-group .card-input {
   width: 100%;
