@@ -22,19 +22,26 @@ class DatabaseConnections {
     let notes = parentCard.querySelector(
       `#card-notes-${parentCard.dataset.card}`
     ).value;
-    let sides = this.convertArrayToPostgresArray(
-      Array.from(
-        parentCard
-          .querySelector(`#card-sides-${parentCard.dataset.card}`)
-          .querySelectorAll("input")
-      ).map((side) => side.value)
-    );
+    let rawSides = [];
+    Array.from(
+      parentCard
+        .querySelector(`#card-sides-${parentCard.dataset.card}`)
+        .querySelectorAll("input")
+    ).forEach((side) => {
+      if (side.value.length > 0) rawSides.push(side.value);
+    });
+    let sides = "";
+
+    if (rawSides.length == 0) {
+      sides = "{}";
+    } else {
+      sides = this.convertArrayToPostgresArray(rawSides);
+    }
     parentCard.classList.contains("new-card")
       ? (newCard = true)
       : (newCard = false);
     //Send that data to the server in order to save it to the database
     //maybe make an await function to show the user what is happening
-
     fetch(
       `/save?mealID=${mealID}&entree=${entree}&tomHome=${tomHome}&timehome=${timeHome}&date=${
         date || "1900-01-01"
