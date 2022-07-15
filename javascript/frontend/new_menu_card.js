@@ -91,6 +91,12 @@ const addNewMenuCard = function (menuCards, menuCardContainer, hamburgerMenu) {
 
   menuCardContainer.insertAdjacentHTML("beforeend", markup);
   hamburgerMenu.click();
+
+  let scrollToPosition = menuCardContainer.lastChild
+    .querySelector("input")
+    .getBoundingClientRect().top;
+  console.log(scrollToPosition);
+  window.scroll(0, scrollToPosition, { behavior: "smooth" });
 };
 
 export { addNewMenuCard };

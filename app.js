@@ -53,7 +53,9 @@ app.get("/menu", (req, res) => {
     `East coast time is ${todaysDate.getHours()}:${todaysDate.getMinutes()}`
   );
 
-  db.any("SELECT * FROM meals WHERE date >= $1", [today]).then((data) => {
+  db.any("SELECT * FROM meals WHERE date >= $1 ORDER BY date asc", [
+    today,
+  ]).then((data) => {
     data.map((meal) => (meal.date = convertPostgresDateForEJS(meal.date)));
     res.render("main", { data: data });
   });

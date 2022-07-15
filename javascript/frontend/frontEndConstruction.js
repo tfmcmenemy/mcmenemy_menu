@@ -143,7 +143,7 @@ class MenuCardFrontEnd {
     });
 
     ///////////////////////////
-    //Add the "Add"c button functions in
+    //Add the "Add" button functions in
     this.addMenuCard.addEventListener("click", (e) => {
       addNewMenuCard(
         Array.from(document.querySelectorAll("[data-card]")),
@@ -151,6 +151,11 @@ class MenuCardFrontEnd {
         this.hamburgerMenu
       );
       this.addFrontEndInteractions();
+      // let scrollToPosition = this.menuCardContainer.lastChild
+      //   .querySelector("input")
+      //   .getBoundingClientRect().bottom;
+      // console.log(`The scroll to position is ${scrollToPosition}`);
+      // // window.scroll(0, scrollToPosition);
     });
   }
 
