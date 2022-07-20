@@ -1,0 +1,27 @@
+.calendar {
+  min-width: 39rem;
+  width: 75%;
+  background-color: orange;
+
+  &_row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0.5rem 0.5rem;
+  }
+  &_day {
+    aspect-ratio: 1/1;
+    border: solid black 2px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5%;
+
+    *:nth-child(odd) {
+      justify-self: start;
+    }
+
+    *:nth-child(even) {
+      justify-self: end;
+    }
+  }
+}

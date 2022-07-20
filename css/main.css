@@ -184,6 +184,12 @@ select {
   font-weight: 500;
   transition: 0.2s ease-out;
 }
+.nav .nav-links .nav-link a:active,
+.nav .nav-links .nav-link a:visited,
+.nav .nav-links .nav-link a {
+  color: inherit;
+  text-decoration: none;
+}
 .nav .nav-links .nav-link:hover {
   cursor: pointer;
 }
@@ -559,12 +565,65 @@ select {
   position: relative;
   top: 0;
   transition: 0.2s all ease-in-out;
+  text-align: center;
 }
 .mobile-menu__list .mobile-menu__item:hover {
   top: -1.5px;
 }
 .mobile-menu__list .mobile-menu__item:active {
   top: 0px;
+}
+.mobile-menu__list .mobile-menu__item {
+  position: relative;
+  top: 0;
+}
+
+.mobile-menu__list-site {
+  padding: 0.5rem 0;
+  display: flex;
+  list-style: none;
+  position: fixed;
+  z-index: 2;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: space-around;
+  width: 0rem;
+  overflow: hidden;
+  transition: 0.2s all ease-in-out;
+}
+.mobile-menu__list-site a,
+.mobile-menu__list-site a:active,
+.mobile-menu__list-site a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+.mobile-menu__list-site.active {
+  width: 35rem;
+  bottom: 0rem;
+  right: 0;
+}
+.mobile-menu__list-site .mobile-menu__item-site {
+  display: grid;
+  place-items: center;
+  width: 9rem;
+  padding: 1rem;
+  border-radius: 4rem;
+  background-color: #467f4d;
+  color: #cbcbcb;
+  position: relative;
+  top: 0;
+  transition: 0.2s all ease-in-out;
+}
+.mobile-menu__list-site .mobile-menu__item-site:hover {
+  top: -1.5px;
+}
+.mobile-menu__list-site .mobile-menu__item-site:active {
+  top: 0px;
+}
+.mobile-menu__list-site .mobile-menu__item {
+  position: relative;
+  top: 0;
 }
 
 .darken-screen {
@@ -573,10 +632,35 @@ select {
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.55);
   z-index: 1;
   display: none;
 }
 .darken-screen.active {
   display: block;
+}
+
+.calendar {
+  min-width: 39rem;
+  width: 75%;
+  background-color: orange;
+}
+.calendar_row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0.5rem 0.5rem;
+}
+.calendar_day {
+  aspect-ratio: 1/1;
+  border: solid black 2px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5%;
+}
+.calendar_day *:nth-child(odd) {
+  justify-self: start;
+}
+.calendar_day *:nth-child(even) {
+  justify-self: end;
 }

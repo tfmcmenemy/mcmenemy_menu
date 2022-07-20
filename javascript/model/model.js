@@ -43,7 +43,7 @@ class DatabaseConnections {
     //Send that data to the server in order to save it to the database
     //maybe make an await function to show the user what is happening
     fetch(
-      `/save?mealID=${mealID}&entree=${entree}&tomHome=${tomHome}&timehome=${timeHome}&date=${
+      `/menu/save?mealID=${mealID}&entree=${entree}&tomHome=${tomHome}&timehome=${timeHome}&date=${
         date || "1900-01-01"
       }&conflicts=${conflicts}&notes=${notes}&sides=${sides}&newCard=${newCard}`,
       {
@@ -60,12 +60,6 @@ class DatabaseConnections {
   convertArrayToPostgresArray(arr) {
     return "{".concat(arr.join(", "), "}");
   }
-
-  // changeMealIdInHTML(mealID, parentCard) {
-  //   let originalCardID = parentCard.dataset.card;
-  //   parentCard.outerHTML.replaceAll(originalCardID, mealID);
-  //   // parentCard.outerHTML = newHTML;
-  // }
 }
 
 export { DatabaseConnections };

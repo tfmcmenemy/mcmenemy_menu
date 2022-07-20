@@ -9,6 +9,8 @@ class MenuCardFrontEnd {
     this.hamburgerMenu = document.querySelector("#hamburger-menu");
     this.darkenScreen = document.querySelector("#darken-screen");
     this.mobileMenuList = document.querySelector("#mobile-menu__list");
+    this.mobileMenuListSite = document.querySelector("#mobile-menu__list-site");
+    this.darkMobileMenuOverlay = document.querySelector("#darken-screen");
     this.hamburgerStatus = false;
   }
 
@@ -123,16 +125,22 @@ class MenuCardFrontEnd {
   }
 
   addHamburgerMenuInteractions() {
+    this.darkenScreen.addEventListener("click", (e) => {
+      this.hamburgerMenu.click();
+    });
+
     this.hamburgerMenu.addEventListener("click", (e) => {
       if (!this.hamburgerStatus) {
         this.hamburgerMenu.classList.add("active");
         this.darkenScreen.classList.add("active");
         this.mobileMenuList.classList.add("active");
+        this.mobileMenuListSite.classList.add("active");
       }
       if (this.hamburgerStatus) {
         this.hamburgerMenu.classList.remove("active");
         this.darkenScreen.classList.remove("active");
         this.mobileMenuList.classList.remove("active");
+        this.mobileMenuListSite.classList.remove("active");
       }
 
       this.hamburgerStatus = !this.hamburgerStatus;
