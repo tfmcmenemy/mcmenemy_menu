@@ -52,13 +52,13 @@ Breakpoint argument choices:
 }
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
   background: #0e4132;
   font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
-  scroll-behavior: smooth;
 }
 
 .container {
@@ -97,10 +97,6 @@ ol[role=list] {
 }
 
 /* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
 /* Set core body defaults */
 body {
   min-height: 100vh;
@@ -641,26 +637,77 @@ select {
 }
 
 .calendar {
-  min-width: 39rem;
   width: 75%;
-  background-color: orange;
+}
+@media only screen and (max-width: 650px) {
+  .calendar {
+    min-width: 100vw;
+  }
 }
 .calendar_row {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
   padding: 0.5rem 0.5rem;
 }
 .calendar_day {
-  aspect-ratio: 1/1;
-  border: solid black 2px;
+  width: 100%;
+  border: solid black 1px;
+  border-radius: 5px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
   padding: 5%;
 }
-.calendar_day *:nth-child(odd) {
-  justify-self: start;
+.calendar_day-date {
+  grid-column: 1/-1;
+  font-weight: 600;
+  font-size: 1.2rem;
+  align-self: center;
 }
-.calendar_day *:nth-child(even) {
-  justify-self: end;
+.calendar_day-day-of-the-week {
+  display: none;
+}
+.calendar_day-duty-type {
+  font-size: 1rem;
+  align-self: center;
+  grid-column: 1/-1;
+}
+.calendar_day-airport {
+  display: none;
+}
+.calendar_day-start-time {
+  display: none;
+}
+.calendar_day-end-time {
+  display: none;
+}
+.calendar_day-leave-home-time {
+  font-size: 0.9rem;
+  align-self: center;
+}
+.calendar_day-leave-home-arrow {
+  font-size: 0.9rem;
+  align-self: center;
+}
+.calendar_day-get-home-time {
+  font-size: 0.9rem;
+  align-self: center;
+}
+.calendar_day-airports {
+  display: none;
+}
+.calendar_day.dom {
+  background-color: rgb(101, 174, 247);
+}
+.calendar_day.inl {
+  background-color: rgb(255, 121, 239);
+}
+.calendar_day.rdo {
+  background-color: rgb(149, 247, 129);
+}
+.calendar_day.trn {
+  background-color: rgb(255, 214, 78);
 }

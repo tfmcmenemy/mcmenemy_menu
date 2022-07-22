@@ -1,22 +1,12 @@
+import { MenuCardFrontEnd } from "./menuCardFrontEnd.js";
+
 const addNewMenuCard = function (menuCards, menuCardContainer, hamburgerMenu) {
-  //below finds what the next logical card number should be. This will only be a placeholder though.
-  //The reason for this is because once the card is saved, the index in the database may be different.
-  //To fix this, once the card is saved, the server will return the index of the new database record.
-  //Then a function will run to correct the index number on the site incase it saves again.
   const menuCardNumbers = [];
   menuCards.map((card) => menuCardNumbers.push(card.dataset.mealId));
   let tempCardNumber;
   let newCardNumber;
-  //   if (menuCardNumbers.length > 0) {
-  //     let rawNumbers = menuCardNumbers.map((cardNumber) => Number(cardNumber));
-  //     rawNumbers = rawNumbers.filter((rawNumber) => typeof rawNumber == "number");
-  //     console.log(rawNumbers);
-  //     newCardNumber = Math.max(...rawNumbers) + 1;
-  //   }
 
-  //   if (menuCardNumbers.length <= 0) {
   newCardNumber = "newlyAddedCard" + Math.floor(Math.random() * 10000);
-  //   }
 
   const markup = `<div class="menu-card new-card" data-card="${newCardNumber}" data-new="no" id="testCard" data-meal-ID="${newCardNumber}">
                     <form action="#">
@@ -95,8 +85,9 @@ const addNewMenuCard = function (menuCards, menuCardContainer, hamburgerMenu) {
   let scrollToPosition = menuCardContainer.lastChild
     .querySelector("input")
     .getBoundingClientRect().top;
-  console.log(scrollToPosition);
   window.scroll(0, scrollToPosition, { behavior: "smooth" });
+  const menuFrontEnd = new MenuCardFrontEnd();
+  menuFrontEnd.addFrontEndInteractions();
 };
 
 export { addNewMenuCard };

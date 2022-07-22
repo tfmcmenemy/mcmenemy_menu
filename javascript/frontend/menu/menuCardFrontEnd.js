@@ -1,17 +1,17 @@
-import { addNewMenuCard } from "./new_menu_card.js";
-import { DatabaseConnections } from "../model/model.js";
+import { addNewMenuCard } from "../menu/new_menu_card.js";
+import { DatabaseConnections } from "../../model/model.js";
 const DatabaseConnection = new DatabaseConnections();
 
 class MenuCardFrontEnd {
   constructor() {
-    this.menuCardContainer = document.querySelector("#menu-cards");
-    this.addMenuCard = document.querySelector("#add-menu-card");
-    this.hamburgerMenu = document.querySelector("#hamburger-menu");
-    this.darkenScreen = document.querySelector("#darken-screen");
-    this.mobileMenuList = document.querySelector("#mobile-menu__list");
-    this.mobileMenuListSite = document.querySelector("#mobile-menu__list-site");
-    this.darkMobileMenuOverlay = document.querySelector("#darken-screen");
-    this.hamburgerStatus = false;
+    // this.menuCardContainer = document.querySelector("#menu-cards");
+    // this.addMenuCard = document.querySelector("#add-menu-card");
+    // this.hamburgerMenu = document.querySelector("#hamburger-menu");
+    // this.darkenScreen = document.querySelector("#darken-screen");
+    // this.mobileMenuList = document.querySelector("#mobile-menu__list");
+    // this.mobileMenuListSite = document.querySelector("#mobile-menu__list-site");
+    // this.darkMobileMenuOverlay = document.querySelector("#darken-screen");
+    // this.hamburgerStatus = false;
   }
 
   addFrontEndInteractions() {
@@ -124,54 +124,54 @@ class MenuCardFrontEnd {
     this.removeTomHomeLabel();
   }
 
-  addHamburgerMenuInteractions() {
-    this.darkenScreen.addEventListener("click", (e) => {
-      this.hamburgerMenu.click();
-    });
+  // addHamburgerMenuInteractions() {
+  //   this.darkenScreen.addEventListener("click", (e) => {
+  //     this.hamburgerMenu.click();
+  //   });
 
-    this.hamburgerMenu.addEventListener("click", (e) => {
-      if (!this.hamburgerStatus) {
-        this.hamburgerMenu.classList.add("active");
-        this.darkenScreen.classList.add("active");
-        this.mobileMenuList.classList.add("active");
-        this.mobileMenuListSite.classList.add("active");
-      }
-      if (this.hamburgerStatus) {
-        this.hamburgerMenu.classList.remove("active");
-        this.darkenScreen.classList.remove("active");
-        this.mobileMenuList.classList.remove("active");
-        this.mobileMenuListSite.classList.remove("active");
-      }
+  //   this.hamburgerMenu.addEventListener("click", (e) => {
+  //     if (!this.hamburgerStatus) {
+  //       this.hamburgerMenu.classList.add("active");
+  //       this.darkenScreen.classList.add("active");
+  //       this.mobileMenuList.classList.add("active");
+  //       this.mobileMenuListSite.classList.add("active");
+  //     }
+  //     if (this.hamburgerStatus) {
+  //       this.hamburgerMenu.classList.remove("active");
+  //       this.darkenScreen.classList.remove("active");
+  //       this.mobileMenuList.classList.remove("active");
+  //       this.mobileMenuListSite.classList.remove("active");
+  //     }
 
-      this.hamburgerStatus = !this.hamburgerStatus;
-    });
+  //     this.hamburgerStatus = !this.hamburgerStatus;
+  //   });
 
-    this.mobileMenuList.addEventListener("click", () => {
-      return;
-    });
+  //   this.mobileMenuList.addEventListener("click", () => {
+  //     return;
+  //   });
 
-    ///////////////////////////
-    //Add the "Add" button functions in
-    this.addMenuCard.addEventListener("click", (e) => {
-      addNewMenuCard(
-        Array.from(document.querySelectorAll("[data-card]")),
-        this.menuCardContainer,
-        this.hamburgerMenu
-      );
-      this.addFrontEndInteractions();
-      // let scrollToPosition = this.menuCardContainer.lastChild
-      //   .querySelector("input")
-      //   .getBoundingClientRect().bottom;
-      // console.log(`The scroll to position is ${scrollToPosition}`);
-      // // window.scroll(0, scrollToPosition);
-    });
-  }
+  //   ///////////////////////////
+  //   //Add the "Add" button functions in
+  //   this.addMenuCard.addEventListener("click", (e) => {
+  //     addNewMenuCard(
+  //       Array.from(document.querySelectorAll("[data-card]")),
+  //       this.menuCardContainer,
+  //       this.hamburgerMenu
+  //     );
+  //     this.addFrontEndInteractions();
+  //     // let scrollToPosition = this.menuCardContainer.lastChild
+  //     //   .querySelector("input")
+  //     //   .getBoundingClientRect().bottom;
+  //     // console.log(`The scroll to position is ${scrollToPosition}`);
+  //     // // window.scroll(0, scrollToPosition);
+  //   });
+  // }
 
   addSaveButtonsFunctionality() {
     Array.from(this.saveButtons).forEach((button) => {
       button = this.refreshNode(button);
       button.addEventListener("click", (e) => {
-        DatabaseConnection.save(button);
+        DatabaseConnection.saveMenuItem(button);
         this.removeSaveButton(button.closest(".menu-card"));
       });
     });

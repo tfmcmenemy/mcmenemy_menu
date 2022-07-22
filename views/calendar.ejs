@@ -3,23 +3,97 @@
 
         <div class="calendar">
             <div class="calendar_row">
-                <div class="calendar_day">
+                <div class="calendar_day dom">
                     <div class="calendar_day-date">17</div>
                     <div class="calendar_day-day-of-the-week">Sunday</div>
                     <div class="calendar_day-duty-type">DOM</div>
                     <div class="calendar_day-airport">IAD</div>
                     <div class="calendar_day-start-time">0800</div>
                     <div class="calendar_day-end-time">1500</div>
+
                     <div class="calendar_day-leave-home-time">💤</div>
+                    <div class="calendar_day-leave-home-arrow">&#x2192;</div>
                     <div class="calendar_day-get-home-time">1616</div>
                     <div class="calendar_day-airports">SFO-DEN-IAD</div>
                 </div>
-                <div class="calendar_day"></div>
-                <div class="calendar_day"></div>
-                <div class="calendar_day"></div>
-                <div class="calendar_day"></div>
-                <div class="calendar_day"></div>
-                <div class="calendar_day"></div>
+                <div class="calendar_day inl">
+                    <div class="calendar_day-date">18</div>
+                    <div class="calendar_day-day-of-the-week">Monday</div>
+                    <div class="calendar_day-duty-type">INL</div>
+                    <div class="calendar_day-airport">IAD</div>
+                    <div class="calendar_day-start-time">1430</div>
+                    <div class="calendar_day-end-time">💤</div>
+
+                    <div class="calendar_day-leave-home-time">1330</div>
+                    <div class="calendar_day-leave-home-arrow">&#x2192;</div>
+                    <div class="calendar_day-get-home-time">💤</div>
+                    <div class="calendar_day-airports">IAD-FRA</div>
+                </div>
+                <div class="calendar_day inl">
+                    <div class="calendar_day-date">19</div>
+                    <div class="calendar_day-day-of-the-week">Tuesday</div>
+                    <div class="calendar_day-duty-type">INL</div>
+                    <div class="calendar_day-airport">IAD</div>
+                    <div class="calendar_day-start-time">💤</div>
+                    <div class="calendar_day-end-time">0200</div>
+
+                    <div class="calendar_day-leave-home-time">💤</div>
+                    <div class="calendar_day-leave-home-arrow">&#x2192;</div>
+                    <div class="calendar_day-get-home-time">💤</div>
+                    <div class="calendar_day-airports">IAD-FRA</div>
+                </div>
+                <div class="calendar_day inl">
+                    <div class="calendar_day-date">20</div>
+                    <div class="calendar_day-day-of-the-week">Wednesday</div>
+                    <div class="calendar_day-duty-type">INL</div>
+                    <div class="calendar_day-airport">IAD</div>
+                    <div class="calendar_day-start-time">0230</div>
+                    <div class="calendar_day-end-time">1615</div>
+
+                    <div class="calendar_day-leave-home-time">💤</div>
+                    <div class="calendar_day-leave-home-arrow">&#x2192;</div>
+                    <div class="calendar_day-get-home-time">1740</div>
+                    <div class="calendar_day-airports">FRA-IAD</div>
+                </div>
+                <div class="calendar_day rdo">
+                    <div class="calendar_day-date">21</div>
+                    <div class="calendar_day-day-of-the-week">Thursday</div>
+                    <div class="calendar_day-duty-type">RDO</div>
+                    <div class="calendar_day-airport"></div>
+                    <div class="calendar_day-start-time"></div>
+                    <div class="calendar_day-end-time"></div>
+
+                    <div class="calendar_day-leave-home-time"></div>
+                    <div class="calendar_day-leave-home-arrow"></div>
+                    <div class="calendar_day-get-home-time"></div>
+                    <div class="calendar_day-airports"></div>
+                </div>
+                <div class="calendar_day rdo">
+                    <div class="calendar_day-date">22</div>
+                    <div class="calendar_day-day-of-the-week">Friday</div>
+                    <div class="calendar_day-duty-type">RDO</div>
+                    <div class="calendar_day-airport"></div>
+                    <div class="calendar_day-start-time"></div>
+                    <div class="calendar_day-end-time"></div>
+
+                    <div class="calendar_day-leave-home-time"></div>
+                    <div class="calendar_day-leave-home-arrow"></div>
+                    <div class="calendar_day-get-home-time"></div>
+                    <div class="calendar_day-airports"></div>
+                </div>
+                <div class="calendar_day trn">
+                    <div class="calendar_day-date">23</div>
+                    <div class="calendar_day-day-of-the-week">Saturday</div>
+                    <div class="calendar_day-duty-type">TRN</div>
+                    <div class="calendar_day-airport">WFO</div>
+                    <div class="calendar_day-start-time">0700</div>
+                    <div class="calendar_day-end-time">1530</div>
+
+                    <div class="calendar_day-leave-home-time">0600</div>
+                    <div class="calendar_day-leave-home-arrow">&#x2192;</div>
+                    <div class="calendar_day-get-home-time">1615</div>
+                    <div class="calendar_day-airports"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -43,5 +117,6 @@
         <li class="mobile-menu__item-site" id="add-menu-card"><a href="/menu">Menu</a></li>
     </ul>
     <div class="darken-screen" id="darken-screen"></div>
+    <script src="/javascript/frontend/calendar/calendar.js" defer type="module"></script>
 
     <%- include('partials/footer.ejs') %>

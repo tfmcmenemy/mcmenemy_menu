@@ -1,5 +1,5 @@
 class DatabaseConnections {
-  save(button) {
+  saveMenuItem(button) {
     //Get the data from the card that the save button was clicked on
     let parentCard = button.closest(".menu-card");
     let mealID = parentCard.dataset.mealId;

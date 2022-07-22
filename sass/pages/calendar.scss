@@ -1,27 +1,97 @@
+@use "../abstracts/variables";
+
 .calendar {
-  min-width: 39rem;
+  @media only screen and (max-width: 650px) {
+    min-width: 100vw;
+  }
   width: 75%;
-  background-color: orange;
 
   &_row {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
     padding: 0.5rem 0.5rem;
   }
   &_day {
-    aspect-ratio: 1/1;
-    border: solid black 2px;
+    width: 100%;
+    border: solid black 1px;
+    border-radius: 5px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    justify-items: center;
     padding: 5%;
 
-    *:nth-child(odd) {
-      justify-self: start;
+    // * {
+    //   text-align: center;
+    // }
+
+    // *:nth-child(odd) {
+    //   justify-self: start;
+    // }
+
+    // *:nth-child(even) {
+    //   justify-self: end;
+    // }
+
+    &-date {
+      // display: none;
+      grid-column: 1/-1;
+      font-weight: 600;
+      font-size: 1.2rem;
+      align-self: center;
+    }
+    &-day-of-the-week {
+      display: none;
+    }
+    &-duty-type {
+      // display: none;
+      font-size: 1rem;
+      align-self: center;
+      grid-column: 1 / -1;
+    }
+    &-airport {
+      display: none;
+    }
+    &-start-time {
+      display: none;
+    }
+    &-end-time {
+      display: none;
+    }
+    &-leave-home-time {
+      font-size: 0.9rem;
+      align-self: center;
+      // display: none;
     }
 
-    *:nth-child(even) {
-      justify-self: end;
+    &-leave-home-arrow {
+      font-size: 0.9rem;
+      align-self: center;
+    }
+    &-get-home-time {
+      font-size: 0.9rem;
+      align-self: center;
+
+      // display: none;
+    }
+    &-airports {
+      display: none;
+    }
+
+    &.dom {
+      background-color: variables.$dom;
+    }
+    &.inl {
+      background-color: variables.$inl;
+    }
+    &.rdo {
+      background-color: variables.$rdo;
+    }
+    &.trn {
+      background-color: variables.$trn;
     }
   }
 }
