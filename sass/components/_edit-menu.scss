@@ -1,0 +1,180 @@
+@use "../abstracts/variables";
+
+.edit-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: auto;
+  background-color: gray;
+  transform: translateX(0%);
+
+  transition: 0.3s all cubic-bezier(0.19, 0.56, 0.93, 0.9);
+  transition-delay: 0.001s;
+
+  &.activated {
+    transform: translateX(-100%);
+    .blank-day {
+      height: 100%;
+
+      .button-choices {
+        padding: 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        height: 100%;
+        justify-items: center;
+        align-items: center;
+        .duty-btn {
+          background-color: transparent;
+          margin: 1rem;
+          border: black 2px solid;
+          padding: 0.75rem;
+          border-radius: 1.5rem;
+          width: 7.5rem;
+          text-align: center;
+          line-height: 2.1rem;
+          font-size: 1.2rem;
+          height: 4rem;
+
+          position: relative;
+          top: 0;
+          transition: all 0.35s;
+        }
+      }
+    }
+  }
+
+  .blank-day {
+    background-color: variables.$xxx;
+  }
+}
+
+.dom {
+  background-color: variables.$dom !important;
+}
+.inl {
+  background-color: variables.$inl !important;
+}
+.rdo {
+  background-color: variables.$rdo !important;
+}
+.trn {
+  background-color: variables.$trn !important;
+}
+.acy {
+  background-color: variables.$acy !important;
+}
+.xxx {
+  background-color: variables.$xxx !important;
+}
+.alv {
+  background-color: variables.$alv !important;
+}
+.adm {
+  background-color: variables.$adm !important;
+}
+.skl {
+  background-color: variables.$skl !important;
+}
+.nms {
+  background-color: variables.$nms !important;
+}
+.ops {
+  background-color: variables.$ops !important;
+}
+.sm1 {
+  background-color: variables.$sm1 !important;
+}
+.sm2 {
+  background-color: variables.$sm2 !important;
+}
+.sm3 {
+  background-color: variables.$sm3 !important;
+}
+.rec {
+  background-color: variables.$rec !important;
+}
+
+.trainingButtons {
+  background-color: variables.$trn;
+  margin: 1rem;
+  border: black 2px solid;
+  padding: 0.75rem;
+  border-radius: 1.5rem;
+  width: 17rem;
+  text-align: center;
+  line-height: 2.1rem;
+  font-size: 1.2rem;
+  height: 4rem;
+
+  position: absolute;
+  translate: -50% -50%;
+  transition: all 0.35s;
+
+  &.range {
+    top: 40%;
+    left: -40%;
+    &.move {
+      left: 50%;
+    }
+  }
+
+  &.wfo {
+    top: 60%;
+    left: 130%;
+    &.move {
+      left: 50%;
+    }
+  }
+}
+.smButtons {
+  background-color: variables.$sm1;
+  margin: 1rem;
+  border: black 2px solid;
+  padding: 0.75rem;
+  border-radius: 1.5rem;
+  width: 17rem;
+  text-align: center;
+  line-height: 2.1rem;
+  font-size: 1.2rem;
+  height: 4rem;
+
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  transition: all 0.35s;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  place-items: center;
+
+  &.sm1 {
+    background-color: variables.$sm1;
+
+    top: -130% !important;
+    &.move {
+      top: 30% !important;
+    }
+  }
+
+  &.sm2 {
+    background-color: variables.$sm2;
+
+    top: 50%;
+    left: 150%;
+    &.move {
+      left: 50%;
+    }
+  }
+
+  &.sm3 {
+    background-color: variables.$sm3;
+
+    top: 170%;
+    &.move {
+      top: 70%;
+    }
+  }
+}

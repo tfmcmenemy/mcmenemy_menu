@@ -34,6 +34,8 @@
   bottom: 3px;
   left: 50%;
   z-index: 1;
+  border: none;
+  color: variables.$foreground-color;
 
   transform: translateX(-50%);
 

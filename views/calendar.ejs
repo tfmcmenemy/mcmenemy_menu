@@ -2,104 +2,387 @@
     <div class="container">
 
         <div class="calendar">
-            <div class="calendar_row">
-                <div class="calendar_day dom">
-                    <div class="calendar_day-date">17</div>
-                    <div class="calendar_day-day-of-the-week">Sunday</div>
-                    <div class="calendar_day-duty-type">DOM</div>
-                    <div class="calendar_day-airport">IAD</div>
-                    <div class="calendar_day-start-time">0800</div>
-                    <div class="calendar_day-end-time">1500</div>
-
-                    <div class="calendar_day-leave-home-time">💤</div>
-                    <div class="calendar_day-leave-home-arrow">&#x2192;</div>
-                    <div class="calendar_day-get-home-time">1616</div>
-                    <div class="calendar_day-airports">SFO-DEN-IAD</div>
+            <div class="calendar_day dom" data-typeOfDay="dom">
+                <div class="calendar_day-date" data-year="2022">
+                    <div class="month">JUL</div>
+                    <div class="date">17</div>
                 </div>
-                <div class="calendar_day inl">
-                    <div class="calendar_day-date">18</div>
-                    <div class="calendar_day-day-of-the-week">Monday</div>
-                    <div class="calendar_day-duty-type">INL</div>
-                    <div class="calendar_day-airport">IAD</div>
-                    <div class="calendar_day-start-time">1430</div>
-                    <div class="calendar_day-end-time">💤</div>
-
-                    <div class="calendar_day-leave-home-time">1330</div>
-                    <div class="calendar_day-leave-home-arrow">&#x2192;</div>
-                    <div class="calendar_day-get-home-time">💤</div>
-                    <div class="calendar_day-airports">IAD-FRA</div>
+                <div class="calendar_day-day-of-the-week">Sunday</div>
+                <div class="calendar_day-duty-type">
+                    <div class="label">Duty Type</div>
+                    <div class="duty">DOM</div>
                 </div>
-                <div class="calendar_day inl">
-                    <div class="calendar_day-date">19</div>
-                    <div class="calendar_day-day-of-the-week">Tuesday</div>
-                    <div class="calendar_day-duty-type">INL</div>
-                    <div class="calendar_day-airport">IAD</div>
-                    <div class="calendar_day-start-time">💤</div>
-                    <div class="calendar_day-end-time">0200</div>
-
-                    <div class="calendar_day-leave-home-time">💤</div>
-                    <div class="calendar_day-leave-home-arrow">&#x2192;</div>
-                    <div class="calendar_day-get-home-time">💤</div>
-                    <div class="calendar_day-airports">IAD-FRA</div>
+                <div class="calendar_day-airport">
+                    <div class="label">Assigned Airport</div>
+                    <div class="airport">IAD</div>
                 </div>
-                <div class="calendar_day inl">
-                    <div class="calendar_day-date">20</div>
-                    <div class="calendar_day-day-of-the-week">Wednesday</div>
-                    <div class="calendar_day-duty-type">INL</div>
-                    <div class="calendar_day-airport">IAD</div>
-                    <div class="calendar_day-start-time">0230</div>
-                    <div class="calendar_day-end-time">1615</div>
+                <div class="calendar_day-times-label-duty">Duty Times</div>
+                <div class="calendar_day-start-time">0800</div>
+                <div class="calendar_day-start-time-arrow">&#x2192;</div>
 
-                    <div class="calendar_day-leave-home-time">💤</div>
-                    <div class="calendar_day-leave-home-arrow">&#x2192;</div>
-                    <div class="calendar_day-get-home-time">1740</div>
-                    <div class="calendar_day-airports">FRA-IAD</div>
-                </div>
-                <div class="calendar_day rdo">
-                    <div class="calendar_day-date">21</div>
-                    <div class="calendar_day-day-of-the-week">Thursday</div>
-                    <div class="calendar_day-duty-type">RDO</div>
-                    <div class="calendar_day-airport"></div>
-                    <div class="calendar_day-start-time"></div>
-                    <div class="calendar_day-end-time"></div>
+                <div class="calendar_day-end-time">1500</div>
+                <div class="calendar_day-times-label-home">Home Times</div>
 
-                    <div class="calendar_day-leave-home-time"></div>
-                    <div class="calendar_day-leave-home-arrow"></div>
-                    <div class="calendar_day-get-home-time"></div>
-                    <div class="calendar_day-airports"></div>
-                </div>
-                <div class="calendar_day rdo">
-                    <div class="calendar_day-date">22</div>
-                    <div class="calendar_day-day-of-the-week">Friday</div>
-                    <div class="calendar_day-duty-type">RDO</div>
-                    <div class="calendar_day-airport"></div>
-                    <div class="calendar_day-start-time"></div>
-                    <div class="calendar_day-end-time"></div>
+                <div class="calendar_day-leave-home-time">💤</div>
+                <div class="calendar_day-leave-home-arrow">&#x2192;</div>
+                <div class="calendar_day-get-home-time">1616</div>
+                <div class="calendar_day-airports">SFO &#x2192; DEN &#x2192; IAD</div>
 
-                    <div class="calendar_day-leave-home-time"></div>
-                    <div class="calendar_day-leave-home-arrow"></div>
-                    <div class="calendar_day-get-home-time"></div>
-                    <div class="calendar_day-airports"></div>
-                </div>
-                <div class="calendar_day trn">
-                    <div class="calendar_day-date">23</div>
-                    <div class="calendar_day-day-of-the-week">Saturday</div>
-                    <div class="calendar_day-duty-type">TRN</div>
-                    <div class="calendar_day-airport">WFO</div>
-                    <div class="calendar_day-start-time">0700</div>
-                    <div class="calendar_day-end-time">1530</div>
+                <div class="edit-menu">
+                    <div class="blank-day">
+                        <div class="button-choices">
+                            <div class="duty-btn rdo">RDO</div>
+                            <div class="duty-btn alv">ALV</div>
+                            <div class="duty-btn skl">SKL</div>
+                            <div class="duty-btn adm">ADM</div>
+                            <div class="duty-btn nms">NMS</div>
+                            <div class="duty-btn trn">TRN</div>
+                            <div class="duty-btn trn">ACY</div>
+                            <div class="duty-btn inl">INL</div>
+                            <div class="duty-btn dom">DOM</div>
+                            <div class="duty-btn sm1">SM</div>
+                            <div class="duty-btn rec">REC</div>
+                            <div class="duty-btn ops">OPS</div>
 
-                    <div class="calendar_day-leave-home-time">0600</div>
-                    <div class="calendar_day-leave-home-arrow">&#x2192;</div>
-                    <div class="calendar_day-get-home-time">1615</div>
-                    <div class="calendar_day-airports"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="calendar_day inl" data-typeOfDay="inl">
+                <div class="calendar_day-date" data-year="2022">
+                    <div class="month">JUL</div>
+                    <div class="date">18</div>
+                </div>
+                <div class="calendar_day-day-of-the-week">Monday</div>
+                <div class="calendar_day-duty-type">
+                    <div class="label">Duty Type</div>
+                    <div class="duty">INL</div>
+                </div>
+                <div class="calendar_day-airport">
+                    <div class="label">Assigned Airport</div>
+                    <div class="airport">IAD</div>
+                </div>
+                <div class="calendar_day-times-label-duty">Duty Times</div>
+
+                <div class="calendar_day-start-time">1430</div>
+                <div class="calendar_day-start-time-arrow">&#x2192;</div>
+
+                <div class="calendar_day-end-time">🌘</div>
+                <div class="calendar_day-times-label-home">Home Times</div>
+
+                <div class="calendar_day-leave-home-time">1330</div>
+                <div class="calendar_day-leave-home-arrow">&#x2192;</div>
+                <div class="calendar_day-get-home-time">💤</div>
+                <div class="calendar_day-airports">IAD &#x2192; FRA</div>
+                <div class="edit-menu">
+                    <div class="blank-day">
+                        <div class="button-choices">
+                            <div class="duty-btn rdo">RDO</div>
+                            <div class="duty-btn alv">ALV</div>
+                            <div class="duty-btn skl">SKL</div>
+                            <div class="duty-btn adm">ADM</div>
+                            <div class="duty-btn nms">NMS</div>
+                            <div class="duty-btn trn">TRN</div>
+                            <div class="duty-btn trn">ACY</div>
+                            <div class="duty-btn inl">INL</div>
+                            <div class="duty-btn dom">DOM</div>
+                            <div class="duty-btn sm1">SM</div>
+                            <div class="duty-btn rec">REC</div>
+                            <div class="duty-btn ops">OPS</div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="calendar_day inl" data-typeOfDay="inl">
+                <div class="calendar_day-date" data-year="2022">
+                    <div class="month">JUL</div>
+                    <div class="date">19</div>
+                </div>
+                <div class="calendar_day-day-of-the-week">Tuesday</div>
+                <div class="calendar_day-duty-type">
+                    <div class="label">Duty Type</div>
+                    <div class="duty">INL</div>
+                </div>
+                <div class="calendar_day-airport">
+                    <div class="label">Assigned Airport</div>
+                    <div class="airport">IAD</div>
+                </div>
+                <div class="calendar_day-times-label-duty">Duty Times</div>
+
+                <div class="calendar_day-start-time">🌘</div>
+                <div class="calendar_day-start-time-arrow">&#x2192;</div>
+
+                <div class="calendar_day-end-time">0200</div>
+                <div class="calendar_day-times-label-home">Home Times</div>
+
+                <div class="calendar_day-leave-home-time">💤</div>
+                <div class="calendar_day-leave-home-arrow">&#x2192;</div>
+                <div class="calendar_day-get-home-time">💤</div>
+                <div class="calendar_day-airports">IAD &#x2192; FRA</div>
+                <div class="edit-menu">
+                    <div class="blank-day">
+                        <div class="button-choices">
+                            <div class="duty-btn rdo">RDO</div>
+                            <div class="duty-btn alv">ALV</div>
+                            <div class="duty-btn skl">SKL</div>
+                            <div class="duty-btn adm">ADM</div>
+                            <div class="duty-btn nms">NMS</div>
+                            <div class="duty-btn trn">TRN</div>
+                            <div class="duty-btn trn">ACY</div>
+                            <div class="duty-btn inl">INL</div>
+                            <div class="duty-btn dom">DOM</div>
+                            <div class="duty-btn sm1">SM</div>
+                            <div class="duty-btn rec">REC</div>
+                            <div class="duty-btn ops">OPS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar_day inl" data-typeOfDay="inl">
+                <div class="calendar_day-date" data-year="2022">
+                    <div class="month">JUL</div>
+                    <div class="date">20</div>
+                </div>
+                <div class="calendar_day-day-of-the-week">Wednesday</div>
+                <div class="calendar_day-duty-type">
+                    <div class="label">Duty Type</div>
+                    <div class="duty">INL</div>
+                </div>
+                <div class="calendar_day-airport">
+                    <div class="label">Assigned Airport</div>
+                    <div class="airport">IAD</div>
+                </div>
+                <div class="calendar_day-times-label-duty">Duty Times</div>
+
+                <div class="calendar_day-start-time">0230</div>
+                <div class="calendar_day-start-time-arrow">&#x2192;</div>
+
+                <div class="calendar_day-end-time">1615</div>
+                <div class="calendar_day-times-label-home">Home Times</div>
+
+                <div class="calendar_day-leave-home-time">💤</div>
+                <div class="calendar_day-leave-home-arrow">&#x2192;</div>
+                <div class="calendar_day-get-home-time">1740</div>
+                <div class="calendar_day-airports">FRA &#x2192; IAD</div>
+                <div class="edit-menu">
+                    <div class="blank-day">
+                        <div class="button-choices">
+                            <div class="duty-btn rdo">RDO</div>
+                            <div class="duty-btn alv">ALV</div>
+                            <div class="duty-btn skl">SKL</div>
+                            <div class="duty-btn adm">ADM</div>
+                            <div class="duty-btn nms">NMS</div>
+                            <div class="duty-btn trn">TRN</div>
+                            <div class="duty-btn trn">ACY</div>
+                            <div class="duty-btn inl">INL</div>
+                            <div class="duty-btn dom">DOM</div>
+                            <div class="duty-btn sm1">SM</div>
+                            <div class="duty-btn rec">REC</div>
+                            <div class="duty-btn ops">OPS</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar_day rdo" data-typeOfDay="rdo">
+                <div class="calendar_day-date" data-year="2022">
+                    <div class="month">JUL</div>
+                    <div class="date">21</div>
+                </div>
+                <div class="calendar_day-day-of-the-week">Thursday</div>
+                <div class="calendar_day-duty-type">
+                    <div class="label">Duty Type</div>
+                    <div class="duty">RDO</div>
+                </div>
+                <div class="calendar_day-airport">
+                    <div class="label">Assigned Airport</div>
+                    <div class="airport"></div>
+                </div>
+                <div class="calendar_day-times-label-duty">Duty Times</div>
+
+                <div class="calendar_day-start-time"></div>
+                <div class="calendar_day-start-time-arrow">&#x2192;</div>
+
+                <div class="calendar_day-end-time"></div>
+                <div class="calendar_day-times-label-home">Home Times</div>
+
+                <div class="calendar_day-leave-home-time"></div>
+                <div class="calendar_day-leave-home-arrow"></div>
+                <div class="calendar_day-get-home-time"></div>
+                <div class="calendar_day-airports"></div>
+                <div class="edit-menu">
+                    <div class="blank-day">
+                        <div class="button-choices">
+                            <div class="duty-btn rdo">RDO</div>
+                            <div class="duty-btn alv">ALV</div>
+                            <div class="duty-btn skl">SKL</div>
+                            <div class="duty-btn adm">ADM</div>
+                            <div class="duty-btn nms">NMS</div>
+                            <div class="duty-btn trn">TRN</div>
+                            <div class="duty-btn trn">ACY</div>
+                            <div class="duty-btn inl">INL</div>
+                            <div class="duty-btn dom">DOM</div>
+                            <div class="duty-btn sm1">SM</div>
+                            <div class="duty-btn rec">REC</div>
+                            <div class="duty-btn ops">OPS</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar_day rdo" data-typeOfDay="rdo">
+                <div class="calendar_day-date" data-year="2022">
+                    <div class="month">JUL</div>
+                    <div class="date">22</div>
+                </div>
+                <div class="calendar_day-day-of-the-week">Friday</div>
+                <div class="calendar_day-duty-type">
+                    <div class="label">Duty Type</div>
+                    <div class="duty">RDO</div>
+                </div>
+                <div class="calendar_day-airport">
+                    <div class="label">Assigned Airport</div>
+                    <div class="airport"></div>
+                </div>
+                <div class="calendar_day-times-label-duty">Duty Times</div>
+
+                <div class="calendar_day-start-time"></div>
+                <div class="calendar_day-start-time-arrow">&#x2192;</div>
+
+                <div class="calendar_day-end-time"></div>
+                <div class="calendar_day-times-label-home">Home Times</div>
+
+                <div class="calendar_day-leave-home-time"></div>
+                <div class="calendar_day-leave-home-arrow"></div>
+                <div class="calendar_day-get-home-time"></div>
+                <div class="calendar_day-airports"></div>
+                <div class="edit-menu">
+                    <div class="blank-day">
+                        <div class="button-choices">
+                            <div class="duty-btn rdo">RDO</div>
+                            <div class="duty-btn alv">ALV</div>
+                            <div class="duty-btn skl">SKL</div>
+                            <div class="duty-btn adm">ADM</div>
+                            <div class="duty-btn nms">NMS</div>
+                            <div class="duty-btn trn">TRN</div>
+                            <div class="duty-btn trn">ACY</div>
+                            <div class="duty-btn inl">INL</div>
+                            <div class="duty-btn dom">DOM</div>
+                            <div class="duty-btn sm1">SM</div>
+                            <div class="duty-btn rec">REC</div>
+                            <div class="duty-btn ops">OPS</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar_day trn" data-typeOfDay="trn">
+                <div class="calendar_day-date" data-year="2022">
+                    <div class="month">JUL</div>
+                    <div class="date">23</div>
+                </div>
+                <div class="calendar_day-day-of-the-week">Saturday</div>
+                <div class="calendar_day-duty-type">
+                    <div class="label">Duty Type</div>
+                    <div class="duty">TRN</div>
+                </div>
+                <div class="calendar_day-airport">
+                    <div class="label">Assigned Airport</div>
+                    <div class="airport">WFO</div>
+                </div>
+                <div class="calendar_day-times-label-duty">Duty Times</div>
+
+                <div class="calendar_day-start-time">0700</div>
+                <div class="calendar_day-start-time-arrow">&#x2192;</div>
+
+                <div class="calendar_day-end-time">1530</div>
+                <div class="calendar_day-times-label-home">Home Times</div>
+
+                <div class="calendar_day-leave-home-time">0600</div>
+                <div class="calendar_day-leave-home-arrow">&#x2192;</div>
+                <div class="calendar_day-get-home-time">1615</div>
+                <div class="calendar_day-airports"></div>
+                <div class="edit-menu">
+                    <div class="blank-day">
+                        <div class="button-choices">
+                            <div class="duty-btn rdo">RDO</div>
+                            <div class="duty-btn alv">ALV</div>
+                            <div class="duty-btn skl">SKL</div>
+                            <div class="duty-btn adm">ADM</div>
+                            <div class="duty-btn nms">NMS</div>
+                            <div class="duty-btn trn">TRN</div>
+                            <div class="duty-btn trn">ACY</div>
+                            <div class="duty-btn inl">INL</div>
+                            <div class="duty-btn dom">DOM</div>
+                            <div class="duty-btn sm1">SM</div>
+                            <div class="duty-btn rec">REC</div>
+                            <div class="duty-btn ops">OPS</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar_day xxx" data-typeOfDay="xxx">
+                <div class="calendar_day-date" data-year="2022">
+                    <div class="month">JUL</div>
+                    <div class="date">23</div>
+                </div>
+                <div class="calendar_day-day-of-the-week">Saturday</div>
+                <div class="calendar_day-duty-type">
+                    <div class="label">Duty Type</div>
+                    <div class="duty">---</div>
+                </div>
+                <div class="calendar_day-airport">
+                    <div class="label">Assigned Airport</div>
+                    <div class="airport"></div>
+                </div>
+                <div class="calendar_day-times-label-duty">Duty Times</div>
+
+                <div class="calendar_day-start-time">--</div>
+                <div class="calendar_day-start-time-arrow">&#x2192;</div>
+
+                <div class="calendar_day-end-time">--</div>
+                <div class="calendar_day-times-label-home">Home Times</div>
+
+                <div class="calendar_day-leave-home-time">--</div>
+                <div class="calendar_day-leave-home-arrow">&#x2192;</div>
+                <div class="calendar_day-get-home-time">--</div>
+                <div class="calendar_day-airports"></div>
+                <div class="edit-menu">
+                    <div class="blank-day">
+                        <div class="button-choices">
+                            <div class="duty-btn rdo">RDO</div>
+                            <div class="duty-btn alv">ALV</div>
+                            <div class="duty-btn skl">SKL</div>
+                            <div class="duty-btn adm">ADM</div>
+                            <div class="duty-btn nms">NMS</div>
+                            <div class="duty-btn trn">TRN</div>
+                            <div class="duty-btn trn">ACY</div>
+                            <div class="duty-btn inl">INL</div>
+                            <div class="duty-btn dom">DOM</div>
+                            <div class="duty-btn sm1">SM</div>
+                            <div class="duty-btn rec">REC</div>
+                            <div class="duty-btn ops">OPS</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
 
+    <div class="add-days-modal">
 
+
+        <div class="add-days-form">
+            <label for="">How many days would you like to add?</label>
+            <input id="add-days-input" type="number">
+        </div>
+    </div>
 
 
 
@@ -110,13 +393,16 @@
         <span class="hamburger"> </span>
     </div>
     <ul class="mobile-menu__list" id="mobile-menu__list">
-        <li class="mobile-menu__item" id="add-menu-card">Add Week</li>
+        <li class="mobile-menu__item" id="add-days">Add Days</li>
     </ul>
     <ul class="mobile-menu__list-site" id="mobile-menu__list-site">
-        <li class="mobile-menu__item-site" id="add-menu-card"><a href="/">Home</a></li>
-        <li class="mobile-menu__item-site" id="add-menu-card"><a href="/menu">Menu</a></li>
+        <li class="mobile-menu__item-site" id="home"><a href="/">Home</a></li>
+        <li class="mobile-menu__item-site" id="menu"><a href="/menu">Menu</a></li>
     </ul>
     <div class="darken-screen" id="darken-screen"></div>
+
+
+
     <script src="/javascript/frontend/calendar/calendar.js" defer type="module"></script>
 
     <%- include('partials/footer.ejs') %>

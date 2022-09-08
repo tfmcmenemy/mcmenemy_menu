@@ -33,6 +33,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
+  console.log("A computer has just connected to the server.");
   res.render("login");
 });
 

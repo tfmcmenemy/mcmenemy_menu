@@ -1,17 +1,25 @@
 @use "../abstracts/variables";
+@use "../base/animations";
 
 .calendar {
   @media only screen and (max-width: 650px) {
     min-width: 100vw;
   }
   width: 75%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  padding: 0 0.5rem;
+  padding-top: 2px;
 
-  &_row {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-    padding: 0.5rem 0.5rem;
+  .day-card-backdrop {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: variables.$backdrop;
+    z-index: 1;
   }
   &_day {
     width: 100%;
@@ -19,29 +27,35 @@
     border-radius: 5px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 25px 1fr 1fr;
 
     justify-items: center;
     padding: 5%;
 
-    // * {
-    //   text-align: center;
-    // }
+    overflow: hidden;
 
-    // *:nth-child(odd) {
-    //   justify-self: start;
-    // }
-
-    // *:nth-child(even) {
-    //   justify-self: end;
-    // }
+    transition: all 1s;
 
     &-date {
       // display: none;
       grid-column: 1/-1;
       font-weight: 600;
       font-size: 1.2rem;
-      align-self: center;
+      align-self: start;
+
+      display: grid;
+      grid-template-rows: 10px 10px;
+      justify-items: center;
+      align-items: start;
+
+      .month {
+        font-weight: 400;
+        font-size: 0.9rem;
+      }
+      .date {
+        align-self: start;
+        padding: 0;
+      }
     }
     &-day-of-the-week {
       display: none;
@@ -51,28 +65,43 @@
       font-size: 1rem;
       align-self: center;
       grid-column: 1 / -1;
+      .label {
+        display: none;
+      }
     }
     &-airport {
       display: none;
+      .label {
+        display: none;
+      }
     }
     &-start-time {
+      display: none;
+    }
+    &-times-label-duty {
+      display: none;
+    }
+    &-start-time-arrow {
       display: none;
     }
     &-end-time {
       display: none;
     }
+    &-times-label-home {
+      display: none;
+    }
     &-leave-home-time {
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       align-self: center;
       // display: none;
     }
 
     &-leave-home-arrow {
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       align-self: center;
     }
     &-get-home-time {
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       align-self: center;
 
       // display: none;
@@ -93,5 +122,237 @@
     &.trn {
       background-color: variables.$trn;
     }
+    &.xxx {
+      background-color: variables.$xxx;
+    }
+
+    .edit-icon {
+      display: none;
+    }
+
+    &.selected {
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      z-index: 2;
+
+      //below gives room for the edit button once the calendar day is in view mode.
+      padding-top: 10%;
+
+      border-radius: 12px;
+
+      width: 85vw;
+      // height: 65vh;
+
+      grid-template-rows: 8rem 8rem 10px 3rem 4rem 3rem 8rem;
+      justify-items: center;
+
+      animation-name: appearFromMiddle;
+      animation-duration: 0.3s;
+
+      *:not(:last-child) {
+        display: block;
+        justify-self: center;
+        align-self: center;
+        font-weight: 400;
+        font-size: 1.8rem;
+      }
+
+      .calendar_day-date {
+        // display: none;
+        grid-column: 1/2;
+        display: grid;
+        grid-template-rows: 0px 4.5rem;
+        justify-items: center;
+        align-self: center;
+
+        .date {
+          font-weight: 600;
+          font-size: 4.5rem;
+        }
+        .month {
+          font-weight: 400;
+          font-size: 1rem;
+        }
+      }
+      .calendar_day-day-of-the-week {
+        // display: none;
+        grid-column: 3/4;
+        font-weight: 400;
+        font-size: 1.8rem;
+      }
+      .calendar_day-duty-type {
+        // display: none;
+        align-self: center;
+        grid-column: 1 / 2;
+
+        display: grid;
+        grid-template-rows: 0px 1fr;
+        justify-items: center;
+        align-self: center;
+
+        .label {
+          font-size: 1rem;
+        }
+        .duty {
+          font-size: 2.5rem;
+          font-weight: 500;
+        }
+      }
+      .calendar_day-airport {
+        // display: none;
+        grid-column: 3/4;
+
+        display: grid;
+        grid-template-rows: 0px 1fr;
+        justify-items: center;
+        align-self: center;
+
+        .label {
+          font-size: 1rem;
+        }
+        .airport {
+          font-size: 2.5rem;
+          font-weight: 500;
+        }
+      }
+
+      .calendar_day-times-label-duty {
+        grid-row: 3/4;
+        grid-column: 1/-1;
+        font-size: 1rem;
+      }
+      .calendar_day-start-time {
+        // display: none;
+      }
+      .calendar_day-start-time-arrow {
+        // display: none;
+      }
+
+      .calendar_day-end-time {
+        // display: none;
+      }
+
+      .calendar_day-times-label-home {
+        grid-row: 5/6;
+        grid-column: 1/-1;
+        font-size: 1rem;
+        align-self: end;
+      }
+      .calendar_day-leave-home-time {
+        align-self: center;
+        // display: none;
+      }
+
+      .calendar_day-leave-home-arrow {
+        align-self: center;
+      }
+      .calendar_day-get-home-time {
+        align-self: center;
+
+        // display: none;
+      }
+      .calendar_day-airports {
+        grid-column: 1/-1;
+      }
+
+      .edit-icon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 60px;
+        width: 60px;
+        padding: 15px;
+      }
+    }
+  }
+}
+
+///////////////////
+/// Add days modal
+.add-days-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: variables.$backdrop;
+  z-index: 2;
+
+  &.show {
+    display: block;
+  }
+
+  .add-days-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    place-content: center;
+    padding: 1rem 5rem;
+    border-radius: 12px;
+
+    text-align: center;
+    max-width: 30rem;
+    width: 75%;
+    height: 22%;
+    background-color: variables.$background-color-light;
+
+    // * {
+    //   margin-bottom: 2rem;
+    // }
+
+    label {
+      color: #09271e;
+    }
+
+    #add-days-input {
+      padding: 1rem;
+      height: 3rem;
+      width: 7rem;
+      border-radius: 7px;
+      border: none;
+      justify-self: center;
+
+      color: #09271e;
+      background-color: variables.$background-color-light-empty-field;
+    }
+
+    button {
+      background-color: variables.$background-color;
+      border-radius: 15px;
+      outline: none;
+      border: none;
+      color: variables.$mobile-menu-site-options-font;
+    }
+  }
+}
+
+///////////////////
+//Animations
+
+@keyframes appearFromMiddle {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(100%);
+  }
+}
+@keyframes disappearFromMiddle {
+  0% {
+    transform: translate(-50%, -50%) scale(100%);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(0);
   }
 }

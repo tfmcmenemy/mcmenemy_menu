@@ -40,13 +40,15 @@ class UniversalPageControls {
 
     ///////////////////////////
     //Add the "Add" button functions in
-    this.addMenuCard.addEventListener("click", (e) => {
-      addNewMenuCard(
-        Array.from(document.querySelectorAll("[data-card]")),
-        this.menuCardContainer,
-        this.hamburgerMenu
-      );
-    });
+    if (this.addMenuCard) {
+      this.addMenuCard.addEventListener("click", (e) => {
+        addNewMenuCard(
+          Array.from(document.querySelectorAll("[data-card]")),
+          this.menuCardContainer,
+          this.hamburgerMenu
+        );
+      });
+    }
   }
 }
 

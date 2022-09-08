@@ -50,6 +50,14 @@ Breakpoint argument choices:
     transform: translateY(0);
   }
 }
+@keyframes appearFromMiddle {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -450,6 +458,8 @@ select {
   bottom: 3px;
   left: 50%;
   z-index: 1;
+  border: none;
+  color: #f2ede6;
   transform: translateX(-50%);
   border-radius: 3.4rem;
 }
@@ -636,20 +646,205 @@ select {
   display: block;
 }
 
+.edit-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: auto;
+  background-color: gray;
+  transform: translateX(0%);
+  transition: 0.3s all cubic-bezier(0.19, 0.56, 0.93, 0.9);
+  transition-delay: 0.001s;
+}
+.edit-menu.activated {
+  transform: translateX(-100%);
+}
+.edit-menu.activated .blank-day {
+  height: 100%;
+}
+.edit-menu.activated .blank-day .button-choices {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+}
+.edit-menu.activated .blank-day .button-choices .duty-btn {
+  background-color: transparent;
+  margin: 1rem;
+  border: black 2px solid;
+  padding: 0.75rem;
+  border-radius: 1.5rem;
+  width: 7.5rem;
+  text-align: center;
+  line-height: 2.1rem;
+  font-size: 1.2rem;
+  height: 4rem;
+  position: relative;
+  top: 0;
+  transition: all 0.35s;
+}
+.edit-menu .blank-day {
+  background-color: rgb(152, 152, 152);
+}
+
+.dom {
+  background-color: rgb(101, 174, 247) !important;
+}
+
+.inl {
+  background-color: rgb(255, 121, 239) !important;
+}
+
+.rdo {
+  background-color: rgb(149, 247, 129) !important;
+}
+
+.trn {
+  background-color: rgb(255, 214, 78) !important;
+}
+
+.acy {
+  background-color: rgb(255, 214, 78) !important;
+}
+
+.xxx {
+  background-color: rgb(152, 152, 152) !important;
+}
+
+.alv {
+  background-color: rgb(255, 255, 0) !important;
+}
+
+.adm {
+  background-color: rgb(255, 255, 0) !important;
+}
+
+.skl {
+  background-color: rgb(255, 255, 0) !important;
+}
+
+.nms {
+  background-color: rgb(252, 141, 101) !important;
+}
+
+.ops {
+  background-color: rgb(33, 255, 218) !important;
+}
+
+.sm1 {
+  background-color: rgb(255, 174, 174) !important;
+}
+
+.sm2 {
+  background-color: rgb(252, 135, 135) !important;
+}
+
+.sm3 {
+  background-color: rgb(254, 115, 115) !important;
+}
+
+.rec {
+  background-color: orange !important;
+}
+
+.trainingButtons {
+  background-color: rgb(255, 214, 78);
+  margin: 1rem;
+  border: black 2px solid;
+  padding: 0.75rem;
+  border-radius: 1.5rem;
+  width: 17rem;
+  text-align: center;
+  line-height: 2.1rem;
+  font-size: 1.2rem;
+  height: 4rem;
+  position: absolute;
+  translate: -50% -50%;
+  transition: all 0.35s;
+}
+.trainingButtons.range {
+  top: 40%;
+  left: -40%;
+}
+.trainingButtons.range.move {
+  left: 50%;
+}
+.trainingButtons.wfo {
+  top: 60%;
+  left: 130%;
+}
+.trainingButtons.wfo.move {
+  left: 50%;
+}
+
+.smButtons {
+  background-color: rgb(255, 174, 174);
+  margin: 1rem;
+  border: black 2px solid;
+  padding: 0.75rem;
+  border-radius: 1.5rem;
+  width: 17rem;
+  text-align: center;
+  line-height: 2.1rem;
+  font-size: 1.2rem;
+  height: 4rem;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  transition: all 0.35s;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  place-items: center;
+}
+.smButtons.sm1 {
+  background-color: rgb(255, 174, 174);
+  top: -130% !important;
+}
+.smButtons.sm1.move {
+  top: 30% !important;
+}
+.smButtons.sm2 {
+  background-color: rgb(252, 135, 135);
+  top: 50%;
+  left: 150%;
+}
+.smButtons.sm2.move {
+  left: 50%;
+}
+.smButtons.sm3 {
+  background-color: rgb(254, 115, 115);
+  top: 170%;
+}
+.smButtons.sm3.move {
+  top: 70%;
+}
+
 .calendar {
   width: 75%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  padding: 0 0.5rem;
+  padding-top: 2px;
 }
 @media only screen and (max-width: 650px) {
   .calendar {
     min-width: 100vw;
   }
 }
-.calendar_row {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 2px;
-  padding: 0.5rem 0.5rem;
+.calendar .day-card-backdrop {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
 }
 .calendar_day {
   width: 100%;
@@ -657,15 +852,29 @@ select {
   border-radius: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 25px 1fr 1fr;
   justify-items: center;
   padding: 5%;
+  overflow: hidden;
+  transition: all 1s;
 }
 .calendar_day-date {
   grid-column: 1/-1;
   font-weight: 600;
   font-size: 1.2rem;
-  align-self: center;
+  align-self: start;
+  display: grid;
+  grid-template-rows: 10px 10px;
+  justify-items: center;
+  align-items: start;
+}
+.calendar_day-date .month {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+.calendar_day-date .date {
+  align-self: start;
+  padding: 0;
 }
 .calendar_day-day-of-the-week {
   display: none;
@@ -675,25 +884,40 @@ select {
   align-self: center;
   grid-column: 1/-1;
 }
+.calendar_day-duty-type .label {
+  display: none;
+}
 .calendar_day-airport {
+  display: none;
+}
+.calendar_day-airport .label {
   display: none;
 }
 .calendar_day-start-time {
   display: none;
 }
+.calendar_day-times-label-duty {
+  display: none;
+}
+.calendar_day-start-time-arrow {
+  display: none;
+}
 .calendar_day-end-time {
   display: none;
 }
+.calendar_day-times-label-home {
+  display: none;
+}
 .calendar_day-leave-home-time {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   align-self: center;
 }
 .calendar_day-leave-home-arrow {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   align-self: center;
 }
 .calendar_day-get-home-time {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   align-self: center;
 }
 .calendar_day-airports {
@@ -710,4 +934,180 @@ select {
 }
 .calendar_day.trn {
   background-color: rgb(255, 214, 78);
+}
+.calendar_day.xxx {
+  background-color: rgb(152, 152, 152);
+}
+.calendar_day .edit-icon {
+  display: none;
+}
+.calendar_day.selected {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  z-index: 2;
+  padding-top: 10%;
+  border-radius: 12px;
+  width: 85vw;
+  grid-template-rows: 8rem 8rem 10px 3rem 4rem 3rem 8rem;
+  justify-items: center;
+  animation-name: appearFromMiddle;
+  animation-duration: 0.3s;
+}
+.calendar_day.selected *:not(:last-child) {
+  display: block;
+  justify-self: center;
+  align-self: center;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+.calendar_day.selected .calendar_day-date {
+  grid-column: 1/2;
+  display: grid;
+  grid-template-rows: 0px 4.5rem;
+  justify-items: center;
+  align-self: center;
+}
+.calendar_day.selected .calendar_day-date .date {
+  font-weight: 600;
+  font-size: 4.5rem;
+}
+.calendar_day.selected .calendar_day-date .month {
+  font-weight: 400;
+  font-size: 1rem;
+}
+.calendar_day.selected .calendar_day-day-of-the-week {
+  grid-column: 3/4;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+.calendar_day.selected .calendar_day-duty-type {
+  align-self: center;
+  grid-column: 1/2;
+  display: grid;
+  grid-template-rows: 0px 1fr;
+  justify-items: center;
+  align-self: center;
+}
+.calendar_day.selected .calendar_day-duty-type .label {
+  font-size: 1rem;
+}
+.calendar_day.selected .calendar_day-duty-type .duty {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+.calendar_day.selected .calendar_day-airport {
+  grid-column: 3/4;
+  display: grid;
+  grid-template-rows: 0px 1fr;
+  justify-items: center;
+  align-self: center;
+}
+.calendar_day.selected .calendar_day-airport .label {
+  font-size: 1rem;
+}
+.calendar_day.selected .calendar_day-airport .airport {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+.calendar_day.selected .calendar_day-times-label-duty {
+  grid-row: 3/4;
+  grid-column: 1/-1;
+  font-size: 1rem;
+}
+.calendar_day.selected .calendar_day-times-label-home {
+  grid-row: 5/6;
+  grid-column: 1/-1;
+  font-size: 1rem;
+  align-self: end;
+}
+.calendar_day.selected .calendar_day-leave-home-time {
+  align-self: center;
+}
+.calendar_day.selected .calendar_day-leave-home-arrow {
+  align-self: center;
+}
+.calendar_day.selected .calendar_day-get-home-time {
+  align-self: center;
+}
+.calendar_day.selected .calendar_day-airports {
+  grid-column: 1/-1;
+}
+.calendar_day.selected .edit-icon {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 60px;
+  width: 60px;
+  padding: 15px;
+}
+
+.add-days-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.55);
+  z-index: 2;
+}
+.add-days-modal.show {
+  display: block;
+}
+.add-days-modal .add-days-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  place-content: center;
+  padding: 1rem 5rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 30rem;
+  width: 75%;
+  height: 22%;
+  background-color: #748676;
+}
+.add-days-modal .add-days-form label {
+  color: #09271e;
+}
+.add-days-modal .add-days-form #add-days-input {
+  padding: 1rem;
+  height: 3rem;
+  width: 7rem;
+  border-radius: 7px;
+  border: none;
+  justify-self: center;
+  color: #09271e;
+  background-color: #c9c9c9;
+}
+.add-days-modal .add-days-form button {
+  background-color: #0e4132;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  color: #cbcbcb;
+}
+
+@keyframes appearFromMiddle {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(100%);
+  }
+}
+@keyframes disappearFromMiddle {
+  0% {
+    transform: translate(-50%, -50%) scale(100%);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+  }
 }
