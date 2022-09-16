@@ -558,7 +558,7 @@ select {
 }
 .mobile-menu__list.active {
   width: 35rem;
-  bottom: 8rem;
+  bottom: 13rem;
 }
 .mobile-menu__list .mobile-menu__item {
   display: grid;
@@ -576,9 +576,6 @@ select {
 .mobile-menu__list .mobile-menu__item:hover {
   top: -1.5px;
 }
-.mobile-menu__list .mobile-menu__item:active {
-  top: 0px;
-}
 .mobile-menu__list .mobile-menu__item {
   position: relative;
   top: 0;
@@ -595,6 +592,7 @@ select {
   transform: translateX(-50%);
   justify-content: space-around;
   width: 0rem;
+  height: 11rem;
   overflow: hidden;
   transition: 0.2s all ease-in-out;
 }
@@ -612,7 +610,8 @@ select {
 .mobile-menu__list-site .mobile-menu__item-site {
   display: grid;
   place-items: center;
-  width: 9rem;
+  width: 11rem;
+  height: 4.5rem;
   padding: 1rem;
   border-radius: 4rem;
   background-color: #467f4d;
@@ -620,6 +619,20 @@ select {
   position: relative;
   top: 0;
   transition: 0.2s all ease-in-out;
+}
+.mobile-menu__list-site .mobile-menu__item-site.middle {
+  position: absolute;
+  top: 0;
+}
+.mobile-menu__list-site .mobile-menu__item-site.left {
+  position: absolute;
+  top: 5rem;
+  left: 0;
+}
+.mobile-menu__list-site .mobile-menu__item-site.right {
+  position: absolute;
+  top: 5rem;
+  right: 0;
 }
 .mobile-menu__list-site .mobile-menu__item-site:hover {
   top: -1.5px;
@@ -824,6 +837,117 @@ select {
   top: 70%;
 }
 
+.buttonGroup {
+  position: absolute;
+  top: 8%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.recoveryButtons {
+  background-color: orange;
+  margin: 1rem;
+  border: black 2px solid;
+  padding: 0.75rem;
+  border-radius: 1.5rem;
+  width: 10rem;
+  text-align: center;
+  line-height: 2.1rem;
+  font-size: 1.2rem;
+  height: 4rem;
+  opacity: 60%;
+  transition: all 0.35s;
+}
+.recoveryButtons.selected {
+  scale: 1.15;
+  opacity: 100%;
+}
+.recoveryButtons.iad {
+  position: relative;
+  left: -50%;
+}
+.recoveryButtons.iad.move {
+  left: 0;
+}
+.recoveryButtons.dca {
+  position: relative;
+  right: -50%;
+}
+.recoveryButtons.dca.move {
+  right: 0;
+}
+
+.timeCollection {
+  position: absolute;
+  top: 200%;
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  width: 100%;
+  transition: 0.35s all;
+}
+.timeCollection.move {
+  top: 10%;
+}
+.timeCollection .formInputGroup {
+  position: relative;
+  padding: 2rem;
+}
+.timeCollection .formInputGroup .timeInput {
+  color: rgb(89, 89, 89);
+  padding: 0.3rem;
+  margin-top: 2.5rem;
+  width: 10rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(89, 89, 89);
+  text-align: center;
+  border-radius: 0;
+}
+.timeCollection .formInputGroup .timeInput:invalid {
+  border-bottom: 1px solid red;
+  text-decoration: line-through;
+}
+.timeCollection .formInputGroup .timeInput:focus {
+  outline: none;
+  border-bottom: 1px solid green;
+  color: rgb(49, 49, 49);
+}
+.timeCollection .formInputGroup .timeInput:focus ~ .timeLabel, .timeCollection .formInputGroup .timeInput:not(:placeholder-shown) ~ .timeLabel {
+  top: 40%;
+  color: rgb(49, 49, 49);
+}
+.timeCollection .formInputGroup .timeInput:not(:placeholder-shown).timeInput:not(:focus) ~ .timeLabel {
+  color: rgb(89, 89, 89);
+}
+.timeCollection .formInputGroup .timeLabel {
+  color: rgb(89, 89, 89);
+  position: absolute;
+  top: 64%;
+  left: 55%;
+  translate: -50% -50%;
+  height: 2rem;
+  transition: all 0.35s;
+  width: 11rem;
+}
+.timeCollection .recoverySaveButton {
+  grid-column: 1/-1;
+  background-color: orange;
+  margin: 1rem;
+  border: black 2px solid;
+  padding: 0.75rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  line-height: 2.1rem;
+  font-size: 1.2rem;
+  width: 25rem;
+  height: 4rem;
+  transition: all 0.35s;
+  margin-top: 5rem;
+}
+
 .calendar {
   width: 75%;
   display: grid;
@@ -955,7 +1079,7 @@ select {
   animation-name: appearFromMiddle;
   animation-duration: 0.3s;
 }
-.calendar_day.selected *:not(:last-child) {
+.calendar_day.selected div[class^=calendar] {
   display: block;
   justify-self: center;
   align-self: center;

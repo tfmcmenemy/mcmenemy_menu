@@ -151,13 +151,15 @@
       animation-name: appearFromMiddle;
       animation-duration: 0.3s;
 
-      *:not(:last-child) {
+      // *:not(:last-child) {
+      div[class^="calendar"] {
         display: block;
         justify-self: center;
         align-self: center;
         font-weight: 400;
         font-size: 1.8rem;
       }
+      // }
 
       .calendar_day-date {
         // display: none;

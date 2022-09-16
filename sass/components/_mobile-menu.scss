@@ -45,7 +45,7 @@
     }
   }
 
-  //When the menu is clicked
+  //When the menu is clicked the three lines will turn into an X
   &.active {
     .hamburger {
       transform: translate(-50%, -50%) rotate(45deg);
@@ -82,7 +82,7 @@
 
   &.active {
     width: 35rem;
-    bottom: 8rem;
+    bottom: 13rem;
   }
   .mobile-menu__item {
     display: grid;
@@ -101,9 +101,9 @@
       top: -1.5px;
     }
 
-    &:active {
-      top: 0px;
-    }
+    // &:active {
+    //   top: 0px;
+    // }
   }
 
   .mobile-menu__item {
@@ -122,6 +122,7 @@
   transform: translateX(-50%);
   justify-content: space-around;
   width: 0rem;
+  height: 11rem;
   overflow: hidden;
   transition: 0.2s all ease-in-out;
 
@@ -140,7 +141,8 @@
   .mobile-menu__item-site {
     display: grid;
     place-items: center;
-    width: 9rem;
+    width: 11rem;
+    height: 4.5rem;
     padding: 1rem;
     border-radius: 4rem;
     background-color: variables.$mobile-menu-site-options-background;
@@ -148,6 +150,23 @@
     position: relative;
     top: 0;
     transition: 0.2s all ease-in-out;
+
+    &.middle {
+      position: absolute;
+      top: 0;
+    }
+
+    &.left {
+      position: absolute;
+      top: 5rem;
+      left: 0;
+    }
+
+    &.right {
+      position: absolute;
+      top: 5rem;
+      right: 0;
+    }
 
     &:hover {
       top: -1.5px;

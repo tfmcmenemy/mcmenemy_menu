@@ -26,6 +26,7 @@
         height: 100%;
         justify-items: center;
         align-items: center;
+
         .duty-btn {
           background-color: transparent;
           margin: 1rem;
@@ -176,5 +177,128 @@
     &.move {
       top: 70%;
     }
+  }
+}
+
+.buttonGroup {
+  position: absolute;
+  top: 8%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.recoveryButtons {
+  background-color: variables.$rec;
+  margin: 1rem;
+  border: black 2px solid;
+  padding: 0.75rem;
+  border-radius: 1.5rem;
+  width: 10rem;
+  text-align: center;
+  line-height: 2.1rem;
+  font-size: 1.2rem;
+  height: 4rem;
+  opacity: 60%;
+  transition: all 0.35s;
+
+  &.selected {
+    scale: 1.15;
+    opacity: 100%;
+  }
+
+  &.iad {
+    position: relative;
+    left: -50%;
+    &.move {
+      left: 0;
+    }
+  }
+
+  &.dca {
+    position: relative;
+    right: -50%;
+    &.move {
+      right: 0;
+    }
+  }
+}
+
+.timeCollection {
+  position: absolute;
+  top: 200%;
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  width: 100%;
+
+  transition: 0.35s all;
+  &.move {
+    top: 10%;
+  }
+
+  .formInputGroup {
+    position: relative;
+    padding: 2rem;
+
+    .timeInput {
+      color: rgb(89, 89, 89);
+      padding: 0.3rem;
+      margin-top: 2.5rem;
+      width: 10rem;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid rgb(89, 89, 89);
+      text-align: center;
+      border-radius: 0;
+
+      &:invalid {
+        border-bottom: 1px solid red;
+        text-decoration: line-through;
+      }
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid green;
+        color: rgb(49, 49, 49);
+      }
+
+      &:focus ~ .timeLabel,
+      &:not(:placeholder-shown) ~ .timeLabel {
+        top: 40%;
+        color: rgb(49, 49, 49);
+      }
+    }
+    .timeInput:not(:placeholder-shown).timeInput:not(:focus) ~ .timeLabel {
+      color: rgb(89, 89, 89);
+    }
+
+    .timeLabel {
+      color: rgb(89, 89, 89);
+      position: absolute;
+      top: 64%;
+      left: 55%;
+      translate: -50% -50%;
+      height: 2rem;
+      transition: all 0.35s;
+      width: 11rem;
+    }
+  }
+
+  .recoverySaveButton {
+    grid-column: 1/-1;
+    background-color: variables.$rec;
+    margin: 1rem;
+    border: black 2px solid;
+    padding: 0.75rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    line-height: 2.1rem;
+    font-size: 1.2rem;
+    width: 25rem;
+    height: 4rem;
+    transition: all 0.35s;
+    margin-top: 5rem;
   }
 }

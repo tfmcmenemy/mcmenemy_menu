@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            place-items: center;
+        }
+
+        .cont {
+            position: relative;
+            background-color: rgb(152, 152, 152);
+            border-radius: 15px;
+            height: 408px;
+            width: 329px;
+        }
+    </style>
+    <div class="cont">
+        <div class="buttonGroup">
+            <div class="iad recoveryButtons move">IAD</div>
+            <div class="dca recoveryButtons move">DCA</div>
+        </div>
+        <div class="timeCollection">
+
+            <div class="formInputGroup">
+                <input id="startTime" class="timeInput" type="number" placeholder=" ">
+                <label for="startTime" class="timeLabel">Start Time</label>
+            </div>
+            <div class="formInputGroup">
+                <input id="endTime" class="timeInput" type="number" placeholder=" ">
+                <label for="endTime" class="timeLabel">End Time</label>
+            </div>
+            <div class="formInputGroup">
+                <input id="LEAVEHOME" class="timeInput" type="number" placeholder=" ">
+                <label for="LEAVEHOME" class="timeLabel">Leave Home</label>
+            </div>
+            <div class="formInputGroup">
+                <input id="GETHOME" class="timeInput" type="number" placeholder=" ">
+                <label for="GETHOME" class="timeLabel">Get Home</label>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

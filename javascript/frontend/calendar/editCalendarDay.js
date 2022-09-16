@@ -205,6 +205,67 @@ class EditCalendarDay {
         });
       }
     }
+
+    if (typeOfDay == "REC") {
+      //Generates the markup and inserts it
+      let recoveryMarkup = this.getRecoveryMenuMarkup();
+      let editFrame = buttonClicked.closest(".blank-day");
+      editFrame.insertAdjacentHTML("afterbegin", recoveryMarkup);
+
+      //Declares variables that will be needed in the later steps.
+      let iadButton = editFrame.querySelector(".iad");
+      let dcaButton = editFrame.querySelector(".dca");
+      let timeCollection = editFrame.querySelector(".timeCollection");
+      let buttonGroup = editFrame.querySelector(".buttonGroup");
+      let buttons = [iadButton, dcaButton];
+      let saveButton = editFrame.querySelector(".recoverySaveButton");
+
+      saveButton.addEventListener("click", (e) => {
+        let airport = "";
+        buttons.forEach((btn) => {
+          if (btn.classList.contains("selected")) {
+            airport = btn.innerText;
+          }
+        });
+        console.log(airport);
+      });
+
+      buttonGroup.addEventListener("click", (e) => {
+        buttons.forEach((btn) => {
+          if (btn.classList.contains("selected"))
+            btn.classList.remove("selected");
+        });
+
+        e.target.classList.add("selected");
+      });
+
+      //If there are 4 or more digits in the input field, no more entries are allowed.
+      Array.from(timeCollection.querySelectorAll("input")).forEach((input) => {
+        input.addEventListener("keydown", (e) => {
+          if (e.target.value.length >= 4) {
+            if (parseInt(e.key)) e.preventDefault();
+          }
+        });
+      });
+
+      //Adds functionality to the save button
+      saveButton.addEventListener("click", () => {
+        //Check to se if an airport was selected
+        //
+        //Check to make sure that all of the inputs hav a valid 4 digit time
+        //the last two digits are lower than 60
+        //it is 4 digits long
+        //it is a number
+        //
+        //
+      });
+      //Adds the animations to the bottom of the stack.
+      setTimeout(() => {
+        iadButton.classList.add("move");
+        dcaButton.classList.add("move");
+        timeCollection.classList.add("move");
+      }, 0);
+    }
   }
 
   variableTimeMenu() {}
@@ -304,7 +365,40 @@ class EditCalendarDay {
   closeExpandedView() {
     let expandedCardView = document.querySelector(".day-card-backdrop");
     expandedCardView.remove();
+
+    //Add something in to delete all of the buttons that were created.
   }
+
+  getRecoveryMenuMarkup() {
+    return ` <div class="buttonGroup">
+            <div class="iad recoveryButtons ">IAD</div>
+            <div class="dca recoveryButtons ">DCA</div>
+        </div>
+        <div class="timeCollection">
+
+            <div class="formInputGroup">
+                <input id="startTime" class="timeInput" pattern="[0-9]*"   type="number" placeholder=" ">
+                <label for="startTime" class="timeLabel">Start Time</label>
+            </div>
+            <div class="formInputGroup">
+                <input id="endTime" class="timeInput" pattern="[0-9]*"  type="number" placeholder=" ">
+                <label for="endTime" class="timeLabel">End Time</label>
+            </div>
+            <div class="formInputGroup">
+                <input id="leaveHome" class="timeInput" pattern="[0-9]*"   type="number" placeholder=" ">
+                <label for="leaveHome" class="timeLabel">Leave Home</label>
+            </div>
+            <div class="formInputGroup">
+                <input id="getHome" class="timeInput" pattern="[0-9]*"   type="number" placeholder=" ">
+                <label for="getHome" class="timeLabel">Get Home</label>
+            </div>
+
+            <div class="recoverySaveButton">Save</div>
+
+        </div>`;
+  }
+
+  checkFourDigitTimeValidity(time) {}
 
   saveChangesToServer(originalPuc) {
     //NEEDS WORK
