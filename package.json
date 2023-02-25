@@ -2,7 +2,7 @@
   "name": "family_menu",
   "version": "1.0.0",
   "description": "",
-  "source": "app.js",
+  "source": "server.js",
   "scripts": {
     "xstart": "node app.js",
     "sass-watch": "sass --no-source-map --watch ./sass/styles.scss css/main.css",
